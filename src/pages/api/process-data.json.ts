@@ -6,7 +6,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.log("good")
     try {
        
-            const { partnumber, description, qty, url, safeqty } = item;
+            const { partnumber, description, qty, url, safeqty, types} = item;
             const quantity = parseInt(qty, 10);
             const safeQuantity = parseInt(safeqty, 10);
 
@@ -33,12 +33,13 @@ export const POST: APIRoute = async ({ request }) => {
                     qty: quantity,
                     url,
                     safeqty: safeQuantity,
+                    types,
                 });
             }
        
 
         return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-    } catch (error) {
+    } catch (error:any) {
         console.error(error);
         return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }

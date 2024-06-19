@@ -36,7 +36,7 @@ import type { APIRoute } from "astro";
 document.addEventListener("DOMContentLoaded", () => {
   const uploadForm = document.getElementById("upload-form")! as HTMLFormElement ;
   const closeUploadDialogBtn = document.getElementById("close-upload-dialog") as HTMLButtonElement | null;
-  const uploadDialog = document.getElementById("upload-dialog")  as HTMLButtonElement | null;
+  const uploadDialog = document.getElementById("upload-dialog")!  as HTMLButtonElement ;
   const dialog3=document.getElementById("uploaddialog") as HTMLDialogElement | null;
 
   if (!uploadForm || !closeUploadDialogBtn || !dialog3) {
@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error('An unknown error occurred:', error);
   }
 }
+location.reload();
     });
   });
     

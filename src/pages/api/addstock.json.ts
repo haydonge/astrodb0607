@@ -11,7 +11,7 @@ export const POST: APIRoute = async ({ request }) => {
   // console.log(data)
 //小心谨慎模型
   try {
-    const { partnumber, description, qty, url, safeqty ,userConfirmed  } = data; //解析data数据
+    const { partnumber, description, qty, url, safeqty ,types, userConfirmed  } = data; //解析data数据
     const quantity = parseInt(qty, 10);
     const safeQuantity = parseInt(safeqty, 10);
     if (!partnumber || !description || !url   ){
@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
           );
          }
       const existingItems = await db.select().from(Stockonhand).where(eq(Stockonhand.partnumber, partnumber));
-      console.log(existingItems);
+      // console.log(existingItems);
 
     if (existingItems.length > 0) {
         // 返回一个响应，指示需要用户确认
@@ -69,6 +69,7 @@ export const POST: APIRoute = async ({ request }) => {
                   qty: quantity,
                   url,
                   safeqty: safeQuantity,
+                  types,
               });
               console.log(res);
          if (res) {
