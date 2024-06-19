@@ -17,7 +17,7 @@ const { stocks } = Astro.props;
 
 <table class="min-w-full ">
   <thead>
-    <tr class="border-b-2 border-gray-300">
+    <tr>
       <th class="py-2">Part Number</th>
       <th class="py-2">Description</th>
       <th class="py-2">Onhand Qty</th>
@@ -28,7 +28,7 @@ const { stocks } = Astro.props;
   </thead>
   <tbody>
     {stocks.map((stock) => (
-      <tr key={stock.id} >
+      <tr key:any[]={stock.id} class="border-t">
         <th class="py-2">{stock.partnumber}</th>
         <th class="py-2">{stock.description}</th>
         <th class="py-2">{stock.qty}</th>
