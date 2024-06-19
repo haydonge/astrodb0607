@@ -23,7 +23,7 @@ import NumberInput from "./NumberInput.astro";
         pattern="https?://.*"
       />
       <NumberInput name="SafeQTY input" inputId={Math.random()} />
-      
+      <TextInput name="Types" inputId={Math.random()} />
       <!-- <Checkbox checked={false} inputId={Math.random()} name="isRead" /> -->
       <div class="flex gap-4 flex-wrap">
         <Button intent="primary" id="close-dialog1" type="button">Close</Button>
@@ -67,6 +67,7 @@ import NumberInput from "./NumberInput.astro";
       const qty = sanitizeHtml (formData.get("qty-input") as string);
       const url = sanitizeHtml(formData.get("link-url") as string);
       const safeqty = sanitizeHtml (formData.get("safeqty-input") as string);
+      const types = sanitizeHtml(formData.get("types") as string);
    
         
       
@@ -76,7 +77,8 @@ import NumberInput from "./NumberInput.astro";
         typeof description === "string" &&
         typeof url === "string" && 
         typeof qty == "string" && 
-        typeof safeqty == "string"
+        typeof safeqty == "string" &&
+        typeof types == "string"
       ) {
             const req = await fetch("/api/addstock.json", {
               method: "POST",
@@ -88,7 +90,8 @@ import NumberInput from "./NumberInput.astro";
                 description,
                 qty,
                 url,
-                safeqty,            
+                safeqty,
+                types,            
               }),
             });
           // 处理请求的响应
