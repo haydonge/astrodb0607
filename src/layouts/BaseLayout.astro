@@ -2,11 +2,11 @@
 import { getImage } from "astro:assets";
 import dots from "../assets/dots.png";
 import Footer from "../components/Footer.astro";
-import Button from "@/components/ui/Button.astro";
+// import Button from "@/components/ui/Button.astro";
 import Dialog2Stock from "../components/ui/Dialog2stock.astro";
 import Uploadexcel from "../components/ui/Uploadgooglesheet.astro";
 import Search2Data from "@/components/ui/Search2data.astro";
-import UpdateDiaglog from "../components/ui/UpdateDiaglog.astro"
+// import UpdateDiaglog from "../components/ui/UpdateDiaglog.astro"
 const dotsImage = await getImage({ src: dots, format: "avif" });
 import NavBar from "../components/ui/NavBar.astro";
 const { title = "订单管理", description = "Links for web developers." } = Astro.props;
@@ -25,6 +25,9 @@ const { title = "订单管理", description = "Links for web developers." } = As
     <title>{title}</title>
     <meta name="description" content={description} />
     <style>
+      @view-transition {
+         navigation: auto; /* enabled! */
+         }
       body {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
