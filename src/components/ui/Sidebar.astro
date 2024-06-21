@@ -35,7 +35,7 @@ const uniqueFiled2Array = [...new Set(filed2array)];
               </svg>
           </button>
           <!-- hidden -->
-          <div class="dropdown-menu bg-gray-900 hidden">
+          <div class="dropdown-menu bg-gray-900 ">
               <ul>
                   {uniqueFiled2Array.map(item => (
                       <li class="px-4 py-2 hover:bg-gray-700 text-center">
@@ -57,3 +57,12 @@ const uniqueFiled2Array = [...new Set(filed2array)];
       </ul>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.dropdown button').forEach(button => {
+      button.addEventListener('click', () => {
+          const dropdownMenu = button.nextElementSibling;
+          dropdownMenu.classList.toggle('hidden');
+      });
+  });
+</script>

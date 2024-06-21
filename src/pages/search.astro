@@ -33,49 +33,51 @@ const filteredStocks =  defaultStocks;
     </form>
   </div>
   <br> -->
-  <main class="flex flex-col items-center space-y-4">
+  <main class="flex flex-col items-center space-y-4 px-4 md:px-0">
     <!-- <h3 class="text-xl text-theme-accent font-bold leading-tight">
       搜索库存
     </h3> -->
-    <form class="form flex items-center justify-center space-x-9" id="form1">
-        <label for="search">Search DataBase </label>
-       <input 
-        type="text"
-        required
-        min="2"
-        max="24"
-        name="search"
-        id="search"
-        placeholder="Enter a search term…"
-        class=" border border-white" /> 
+    <form class="form flex items-center justify-center space-y-4 md:space-y-0 md:space-x-4" id="form1">
+        <label for="search" class="sr-only">Search DataBase</label>
+        <input 
+            type="text"
+            required
+            minlength="2"
+            maxlength="24"
+            name="search"
+            id="search"
+            placeholder="Enter a search term…"
+            class="border border-white px-3 py-2 rounded-md w-full md:w-auto"
+        />
         <Button intent="accent" type="submit">Search</Button>
     </form>
 
-    <p id="searchReadout"> </p>
-  </main>
-     
-  <section aria-label="Search Results">
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-l table-auto">
-        <thead>
-          <tr class="text-center text-base border-b-2 border-gray-300">
-            <th class="px-6 py-3">ID</th>
-            <th class="px-6 py-3">Part Number</th>
-            <th class="px-6 py-3">Description</th>
-            <th class="px-6 py-3">Qty</th>
-            <th class="px-6 py-3">SafeQty</th>
-            <th class="px-6 py-3">URL</th>
-            <th class="px-6 py-3">TYPES</th>
-            <th class="px-6 py-3">Action</th>  
-          </tr>
-        </thead>
-        <tbody id="searchResults"></tbody>
-      </table>
+    <p id="searchReadout"></p>
+</main>
+
+<section aria-label="Search Results" class="overflow-x-auto">
+    <div class="min-w-full overflow-hidden overflow-x-auto">
+        <table class="min-w-full text-left table-auto">
+            <thead>
+                <tr class="text-base border-b-2 border-gray-300">
+                    <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Part Number</th>
+                    <th class="px-6 py-3">Description</th>
+                    <th class="px-6 py-3">Qty</th>
+                    <th class="px-6 py-3">SafeQty</th>
+                    <th class="px-6 py-3">URL</th>
+                    <th class="px-6 py-3">TYPES</th>
+                    <th class="px-6 py-3">Action</th>
+                </tr>
+            </thead>
+            <tbody id="searchResults"></tbody>
+        </table>
     </div>
     <div id="stockTableContainer">
-      <!-- <StockTable stocks={filteredStocks}/> -->
+        <!-- <StockTable stocks={filteredStocks}/> -->
     </div>
-  </section>
+</section>
+
 <UpdateDiaglog stock={null} />
   
 <script>
