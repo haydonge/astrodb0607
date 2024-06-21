@@ -28,16 +28,8 @@ const filteredStocks =  defaultStocks;
 ---
 
 <BaseLayout>
-  <!-- <div class="flex justify-center items-end gap-48">
-    <form class="flex items-end gap-4 " id="search-form2">
-    </form>
-  </div>
-  <br> -->
   <main class="flex flex-col items-center space-y-4 px-4 md:px-0">
-    <!-- <h3 class="text-xl text-theme-accent font-bold leading-tight">
-      搜索库存
-    </h3> -->
-    <form class="form flex items-center justify-center space-y-4 md:space-y-0 md:space-x-4" id="form1">
+    <form class="form flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 w-full max-w-2xl" id="form1">
         <label for="search" class="sr-only">Search DataBase</label>
         <input 
             type="text"
@@ -47,33 +39,33 @@ const filteredStocks =  defaultStocks;
             name="search"
             id="search"
             placeholder="Enter a search term…"
-            class="border border-white px-3 py-2 rounded-md w-full md:w-auto"
+            class="border border-white px-3 py-2 rounded-md w-full sm:w-auto"
         />
-        <Button intent="accent" type="submit">Search</Button>
+        <Button intent="accent" type="submit" class="w-full sm:w-auto">Search</Button>
     </form>
 
-    <p id="searchReadout"></p>
+    <p id="searchReadout" class="text-center"></p>
 </main>
 
-<section aria-label="Search Results" class="overflow-x-auto">
+<section aria-label="Search Results" class="overflow-x-auto mt-8">
     <div class="min-w-full overflow-hidden overflow-x-auto">
         <table class="min-w-full text-left table-auto">
             <thead>
-                <tr class="text-base border-b-2 border-gray-300">
-                    <th class="px-6 py-3">ID</th>
-                    <th class="px-6 py-3">Part Number</th>
-                    <th class="px-6 py-3">Description</th>
-                    <th class="px-6 py-3">Qty</th>
-                    <th class="px-6 py-3">SafeQty</th>
-                    <th class="px-6 py-3">URL</th>
-                    <th class="px-6 py-3">TYPES</th>
-                    <th class="px-6 py-3">Action</th>
+                <tr class="text-sm sm:text-base border-b-2 border-gray-300">
+                    <th class="px-2 sm:px-4 md:px-6 py-3">ID</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">Part Number</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">Description</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">Qty</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">SafeQty</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">URL</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">TYPES</th>
+                    <th class="px-2 sm:px-4 md:px-6 py-3">Action</th>
                 </tr>
             </thead>
-            <tbody id="searchResults"></tbody>
+            <tbody id="searchResults" class="text-sm sm:text-base"></tbody>
         </table>
     </div>
-    <div id="stockTableContainer">
+    <div id="stockTableContainer" class="mt-8">
         <!-- <StockTable stocks={filteredStocks}/> -->
     </div>
 </section>
@@ -125,13 +117,13 @@ const filteredStocks =  defaultStocks;
 
            return `
             <tr  class="text-center">
-                <td class="py-2">${id}</td>
-                <td class="py-2">${partnumber}</td>
-                <td class="py-2">${description}</td>
-                <td class="py-2">${qty}</td>
-                <td class="py-2">${safeqty}</td>
-                <td class="py-2"> <a href=${url} class="text-blue-500 hover:underline mr-4"> Link </a> </td>
-                <td class="py-2">${types}</td>
+                <td class="px-2 md:px-6 py-4">${id}</td>
+                <td class="px-2 md:px-6 py-4">${partnumber}</td>
+                <td class="px-2 md:px-6 py-4">${description}</td>
+                <td class="px-2 md:px-6 py-4">${qty}</td>
+                <td class="px-2 md:px-6 py-4">${safeqty}</td>
+                <td class="px-2 md:px-6 py-4"> <a href=${url} class="text-blue-500 hover:underline mr-4"> Link </a> </td>
+                <td class="px-2 md:px-6 py-4">${types}</td>
                 <td>  <button
                   data-update
                   data-id=${id}
